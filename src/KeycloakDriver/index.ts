@@ -144,6 +144,7 @@ export class KeycloakDriver extends Oauth2Driver<KeycloakDriverAccessToken, Keyc
    * hook to pre-configure the request.
    */
   protected configureRedirectRequest(request: RedirectRequest<KeycloakDriverScopes>) {
+    request.scopes(['openid'])
     request.param('response_type', 'code')
   }
 
