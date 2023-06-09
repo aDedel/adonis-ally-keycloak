@@ -191,6 +191,8 @@ export class KeycloakDriver extends Oauth2Driver<KeycloakDriverAccessToken, Keyc
     return {
       id: body.sub,
       nickName: body.preferred_username,
+      lastName: body.family_name,
+      firstName: body.given_name,
       name: body.name,
       email: body.email,
       avatarUrl: null,
