@@ -37,6 +37,8 @@ export type KeycloakDriverScopes = 'openid profile'
  */
 export type KeycloakDriverConfig = {
   driver: 'keycloak'
+  keycloakUrl?: string
+  realm?: string
   clientId: string
   clientSecret: string
   callbackUrl: string
@@ -112,6 +114,26 @@ export class KeycloakDriver extends Oauth2Driver<KeycloakDriverAccessToken, Keyc
 
   constructor(ctx: HttpContextContract, public config: KeycloakDriverConfig) {
     super(ctx, config)
+
+    // Update config
+    this.config = config
+
+    if (this.config.keycloakUrl) {
+      // Build authorizeUrl if not defined
+      if (!this.authorizeUrl) {
+        this.authorizeUrl = this.buildKeycloakUrl('auth')
+      }
+
+      // Build accessTokenUrl if not defined
+      if (!this.accessTokenUrl) {
+        this.accessTokenUrl = this.buildKeycloakUrl('token')
+      }
+
+      // Build userInfoUrl if not defined
+      if (!this.userInfoUrl) {
+        this.userInfoUrl = this.buildKeycloakUrl('userinfo')
+      }
+    }
 
     /**
      * Extremely important to call the following method to clear the
@@ -205,5 +227,19 @@ export class KeycloakDriver extends Oauth2Driver<KeycloakDriverAccessToken, Keyc
       ...user,
       token: { token, type: 'bearer' as const },
     }
+  }
+
+  /**
+   * Build keycloak URL
+   */
+  protected buildKeycloakUrl(action: string): string {
+    if (!this.config.keycloakUrl) {
+      throw Error('Missing keycloak URL')
+    }
+    if (!this.config.realm) {
+      throw Error('Missing realm name')
+    }
+
+    return this.config.keycloakUrl.replace('{realm}', this.config.realm).replace('{action}', action)
   }
 }
