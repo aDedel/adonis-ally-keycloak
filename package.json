@@ -1,6 +1,6 @@
 {
-  "name": "ally-keycloak",
-  "version": "1.0.0",
+  "name": "@dedel.alex/ally-keycloak",
+  "version": "1.0.1",
   "description": "Keycloak authentication provider for AdonisJS",
   "main": "build/providers/index.js",
   "files": [
@@ -24,7 +24,7 @@
     "adonisjs",
     "adonis-ally"
   ],
-  "author": "",
+  "author": "dedel.alex",
   "license": "MIT",
   "devDependencies": {
     "@adonisjs/ally": "^4.1.5",
@@ -53,5 +53,13 @@
     "providers": [
       "ally-keycloak"
     ]
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aDedel/adonis-ally-keycloak.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aDedel/adonis-ally-keycloak/issues"
+  },
+  "homepage": "https://github.com/aDedel/adonis-ally-keycloak#readme"
 }
