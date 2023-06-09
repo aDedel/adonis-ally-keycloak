@@ -57,21 +57,21 @@ export class KeycloakDriver extends Oauth2Driver<KeycloakDriverAccessToken, Keyc
    *
    * Do not define query strings in this URL.
    */
-  protected authorizeUrl = 'http://localhost:8080/realms/lab/protocol/openid-connect/auth'
+  protected authorizeUrl
 
   /**
    * The URL to hit to exchange the authorization code for the access token
    *
    * Do not define query strings in this URL.
    */
-  protected accessTokenUrl = 'http://localhost:8080/realms/lab/protocol/openid-connect/token'
+  protected accessTokenUrl
 
   /**
    * The URL to hit to get the user details
    *
    * Do not define query strings in this URL.
    */
-  protected userInfoUrl = 'http://localhost:8080/realms/lab/protocol/openid-connect/userinfo'
+  protected userInfoUrl
 
   /**
    * The param name for the authorization code. Read the documentation of your oauth
@@ -120,19 +120,13 @@ export class KeycloakDriver extends Oauth2Driver<KeycloakDriverAccessToken, Keyc
 
     if (this.config.keycloakUrl) {
       // Build authorizeUrl if not defined
-      if (!this.authorizeUrl) {
-        this.authorizeUrl = this.buildKeycloakUrl('auth')
-      }
+      this.authorizeUrl = this.buildKeycloakUrl('auth')
 
       // Build accessTokenUrl if not defined
-      if (!this.accessTokenUrl) {
-        this.accessTokenUrl = this.buildKeycloakUrl('token')
-      }
+      this.accessTokenUrl = this.buildKeycloakUrl('token')
 
       // Build userInfoUrl if not defined
-      if (!this.userInfoUrl) {
-        this.userInfoUrl = this.buildKeycloakUrl('userinfo')
-      }
+      this.userInfoUrl = this.buildKeycloakUrl('userinfo')
     }
 
     /**
