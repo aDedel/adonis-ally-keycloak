@@ -1,6 +1,6 @@
 # Install Keycloak in Adonis
 
-- Run `node ace configure <package-name>`. The configure command needs the package name and not the package path.
+- Run `node ace configure @dedel.alex/ally-keycloak`. The configure command needs the package name and not the package path.
 - Inform typescript about your driver by defining a mapping inside the `contracts/ally.ts` file.
 
   ```ts
