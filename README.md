@@ -21,6 +21,8 @@
 - Define the config inside the `config/ally.ts` file as follows:
 
   ```ts
+  import Env from '@ioc:Adonis/Core/Env'
+
   const allyConfig = {
     /*
     |--------------------------------------------------------------------------
@@ -30,9 +32,9 @@
     keycloak: {
       driver: 'keycloak',
       keycloakUrl: 'http://localhost:8080/realms/{realm}/protocol/openid-connect/{action}',
-      realm: 'master',
-      clientId: 'clientId',
-      clientSecret: 'clientSecret',
+      realm: Env.get('KEYCLOAK_REALM'),
+      clientId: Env.get('KEYCLOAK_CLIENT_ID'),
+      clientSecret: Env.get('KEYCLOAK_CLIENT_SECRET'),
       callbackUrl: 'http://localhost:3333/keycloak/callback',
     },
   }

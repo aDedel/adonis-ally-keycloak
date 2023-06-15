@@ -46,6 +46,7 @@
   "adonisjs": {
     "instructionsMd": "./build/instructions.md",
     "env": {
+      "KEYCLOAK_REALM": "master",
       "KEYCLOAK_CLIENT_ID": "",
       "KEYCLOAK_CLIENT_SECRET": ""
     },
