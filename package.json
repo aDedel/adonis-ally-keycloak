@@ -50,9 +50,9 @@
       "KEYCLOAK_CLIENT_ID": "",
       "KEYCLOAK_CLIENT_SECRET": ""
     },
-    "types": "ally-keycloak",
+    "types": "@dedel.alex/ally-keycloak",
     "providers": [
-      "ally-keycloak"
+      "@dedel.alex/ally-keycloak"
     ]
   },
   "repository": {
