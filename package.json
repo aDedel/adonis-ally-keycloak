@@ -1,6 +1,6 @@
 {
   "name": "@dedel.alex/ally-keycloak",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Keycloak authentication provider for AdonisJS",
   "main": "build/providers/index.js",
   "files": [
