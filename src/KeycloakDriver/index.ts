@@ -112,7 +112,10 @@ export class KeycloakDriver extends Oauth2Driver<KeycloakDriverAccessToken, Keyc
    */
   protected scopesSeparator = ' '
 
-  constructor(ctx: HttpContextContract, public config: KeycloakDriverConfig) {
+  constructor(
+    ctx: HttpContextContract,
+    public config: KeycloakDriverConfig
+  ) {
     super(ctx, config)
 
     // Update config
